@@ -34,6 +34,8 @@
 # O programa deve encerrar sua execução quando o usuário escolher a opção de sair.
 
 pokemons = []
+registros_captura = []
+
 
 def adicionar_pokemon():
     nome_pokemon = input ("Digite o nome do pokemon: ")
@@ -66,17 +68,17 @@ def adicionar_pokemon():
     
     print (f"Pokemon {nome_pokemon} foi adicionado com sucesso, seu tipo é: {tipo_pokemon} e seu nivel é: {nivel_pokemon}")
     
-    return print("adicionar_pokemon")
 
 def listar_pokemon():
     
     #for pokemon in pokemons():
-        
-    print(pokemons)
+    
+    if not pokemons:
+        print("Não há Pokemons na lista.\n")
+    else:    
+        print(pokemons)
 
-    
-    
-    return print("listar_pokemon")
+
 
 def remover_pokemon():
     
@@ -111,9 +113,11 @@ def atualizar_nivel():
                 print("Valor inválido.Digite um valor válido entre 1 e 100")
                 return
             pokemon["Nivel do Pokemon"] = novo_valor
+            
         
             
             print(f"O pokemon {nome_pokemon}, foi atualizado o Nivel para {novo_valor}.")
+            return
             
         
     print("Este pokemon nao está cadastrado ou já foi removido")    
