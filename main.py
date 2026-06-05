@@ -33,14 +33,60 @@
 #Sair: 
 # O programa deve encerrar sua execução quando o usuário escolher a opção de sair.
 
+pokemons = []
+
 def adicionar_pokemon():
+    nome_pokemon = input ("Digite o nome do pokemon: ")
+    
+    for pokemon in pokemons:
+        if pokemon["Nome do pokemon"].lower() == nome_pokemon.lower(): 
+            print ("Pokemon já cadastrado.")
+            return
+        
+        
+    tipo_pokemon = input("Digite o tipo de pokemon:\n" "'Fogo' ,'Agua', 'Elétrico', 'Terra', 'Pedra' etc...  \n")    
+        
+
+    try:
+        nivel_pokemon = int(input("Digite o nivel do pokemon entre 1 e 100\n"))
+        
+        if nivel_pokemon < 1 or nivel_pokemon > 100:
+            print("Valor inválido, Digite um valor válido entre 1 e 100")
+            return
+        
+    except ValueError:
+        print("Nivel do Pokemon inválido, Digite um nivel válido.")
+        return
+    
+    pokemons.append({
+        "Nome do pokemon" : nome_pokemon,
+        "Tipo do Pokemon" : tipo_pokemon,
+        "Nivel do Pokemon" : nivel_pokemon
+    })
+    
+    print (f"Pokemon {nome_pokemon} foi adicionado com sucesso, seu tipo é: {tipo_pokemon} e seu nivel é: {nivel_pokemon}")
+    
     return print("adicionar_pokemon")
 
 def listar_pokemon():
+    
+    #for pokemon in pokemons():
+        
+    print(pokemons)
+
+    
+    
     return print("listar_pokemon")
 
 def remover_pokemon():
-    return print("remover_pokemon")
+    
+    nome_pokemon = input("Digite o nome do pokemon a ser Removido:")
+    
+    for pokemon in pokemons:
+        if pokemon["Nome do pokemon"].lower() == nome_pokemon.lower():
+            pokemons.remove(pokemon)
+    
+    return print(f"Pokemon {nome_pokemon} removido com sucesso")
    
 def atualizar_nivel():
     return print("atualizar_nivel")
@@ -74,7 +120,7 @@ def main():
         menu()
         
         opcao = input ("Digite a opção Escolhida : \n")
-        menu()
+        
         if opcao == "1":
             adicionar_pokemon()
         elif opcao == "2":
