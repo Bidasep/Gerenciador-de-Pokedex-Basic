@@ -81,11 +81,15 @@ def listar_pokemon():
 def remover_pokemon():
     
     nome_pokemon = input("Digite o nome do pokemon a ser Removido:")
+        
     
     for pokemon in pokemons:
         if pokemon["Nome do pokemon"].lower() == nome_pokemon.lower():
             pokemons.remove(pokemon)
-    
+            return print(f"Pokemon {nome_pokemon} removido com sucesso")
+        else:
+            print("Este Pokemon nao está cadastrado ou já foi deletado.")
+            return
     return print(f"Pokemon {nome_pokemon} removido com sucesso")
    
 def atualizar_nivel():
