@@ -86,14 +86,40 @@ def remover_pokemon():
     for pokemon in pokemons:
         if pokemon["Nome do pokemon"].lower() == nome_pokemon.lower():
             pokemons.remove(pokemon)
-            return print(f"Pokemon {nome_pokemon} removido com sucesso")
-        else:
-            print("Este Pokemon nao está cadastrado ou já foi deletado.")
+            print(f"Pokemon {nome_pokemon} removido com sucesso")
             return
-    return print(f"Pokemon {nome_pokemon} removido com sucesso")
+            
+    print("Este Pokemon nao está cadastrado ou já foi deletado.")
+      
+    
+    
    
 def atualizar_nivel():
-    return print("atualizar_nivel")
+    
+    nome_pokemon = input("Digite o nome do pokemon para atualizar a força:")
+    
+    for pokemon in pokemons:
+        if pokemon["Nome do pokemon"].lower() == nome_pokemon.lower():
+            try:
+                novo_valor = int(input("Digite o novo valor do Nivel"))
+                
+                if novo_valor <1 or novo_valor >100 :
+                    print("Valor inválido, digite um valor entre 1 e 100")
+                    return
+                
+            except ValueError:
+                print("Valor inválido.Digite um valor válido entre 1 e 100")
+                return
+            pokemon["Nivel do Pokemon"] = novo_valor
+        
+            
+            print(f"O pokemon {nome_pokemon}, foi atualizado o Nivel para {novo_valor}.")
+            
+        
+    print("Este pokemon nao está cadastrado ou já foi removido")    
+            
+            
+    
 
 def registrar_captura():
     return print("registrar_captura")
