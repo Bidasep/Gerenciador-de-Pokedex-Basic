@@ -126,7 +126,45 @@ def atualizar_nivel():
     
 
 def registrar_captura():
-    return print("registrar_captura")
+    
+    nome_pokemon = input("Digite o nome do pokemon para registar a sua captura: ")
+    #verifica se o pokemon existe nos dados
+    for pokemon in pokemons:
+        if pokemon["Nome do pokemon"].lower() == nome_pokemon.lower():
+            try:
+                quantidade_captura = int(input(f"Digite a quantidade de vezes em que o {nome_pokemon} foi capturado, o valor deverá ser maior que 1: "))
+                
+                if quantidade_captura > 0:
+                    
+                    if not registros_captura:
+                        
+                        registros_captura.append({
+                        "Nome do pokemon":nome_pokemon,
+                        "Quantidade de capturas": quantidade_captura
+                        })
+                        
+                        print(f"\nA quantidade de capturas do {nome_pokemon} foi atualizada com sucesso, nova quantidade = {quantidade_captura}")
+                        return
+                    else:
+                        for registro in registros_captura:
+                            if registro["Nome do pokemon"].lower() == nome_pokemon.lower():
+                                
+                                registro["Quantidade de capturas"] += quantidade_captura
+                                print(f"\nA quantidade de capturas do {nome_pokemon} foi atualizada com sucesso, nova quantidade = {registro["Quantidade de capturas"]}")
+                                return
+                else:
+                    print("\nO valor deve ser maior que zero")
+                    return    
+                            
+            except ValueError:
+                print("\nErro.Digite um valor válido para a quantidade de captura.")
+                return           
+            
+    
+    
+    print(f"\n O pokemon {nome_pokemon} não existe ou já foi deletado da base de dados.")    
+        
+
 
 def exibir_historico():
     return print("exibir_historico")
