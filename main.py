@@ -93,7 +93,7 @@ def listar_pokemon():
 # exista, ele será removido do dicionário. Se o Pokémon não existir, o programa exibirá uma mensagem de erro.
 def remover_pokemon():
     #recebe o nome do pokemon
-    nome_pokemon = input("Digite o nome do pokemon a ser Removido:")
+    nome_pokemon = input("Digite o nome do pokemon a ser Removido: ")
         
     #varre cada pokemon e compara com o nome do pokemon passado, se existir, deleta o dicionário do pokemon.
     for pokemon in pokemons:
